@@ -193,7 +193,7 @@ Then open `http://localhost:5173` in your browser.
 
 ---
 
-## API Endpoints (Phase 0â€“4)
+## API Endpoints (Phase 0-4)
 
 All API routes are prefixed with `/api/v1`.
 
@@ -201,8 +201,8 @@ All API routes are prefixed with `/api/v1`.
 
 | Method | Endpoint                | Description                               |
 |--------|-------------------------|-------------------------------------------|
-| GET    | `/api/v1/health`        | Health check â€” returns status             |
-| GET    | `/`                     | Root â€” links to API docs                  |
+| GET    | `/api/v1/health`        | Health check - returns status             |
+| GET    | `/`                     | Root - links to API docs                  |
 | GET    | `/docs`                 | Swagger UI (interactive docs)             |
 | POST   | `/api/v1/auth/register` | Create a new user account                 |
 | POST   | `/api/v1/auth/login`    | Log in and receive a JWT token            |
