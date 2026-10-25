@@ -25,9 +25,6 @@ A full-stack web application that helps students and job seekers:
 
 ## Project Structure
 
-```
-# Project Structure
-
 ```text
 AI-CareerPilot/
 |-- frontend/          # React + TypeScript + Vite frontend
@@ -38,10 +35,6 @@ AI-CareerPilot/
 ```
 
 ---
-```
-
----
-
 ## Prerequisites
 
 Install the following on your Windows machine:
