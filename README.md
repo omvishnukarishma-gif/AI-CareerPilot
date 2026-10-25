@@ -39,15 +39,15 @@ AI-CareerPilot/
 
 Install the following on your Windows machine:
 
-1. **Python 3.11 or later** â€” <https://www.python.org/downloads/windows/>
+1. **Python 3.11 or later** - <https://www.python.org/downloads/windows/>
    - Verify: `py --version`
 
-2. **Node.js 20 or later** (with npm) â€” <https://nodejs.org/>
+2. **Node.js 20 or later** (with npm) - <https://nodejs.org/>
    - Verify: `node --version` and `npm --version`
 
-3. **PostgreSQL** â€” choose **one** of the options below.
+3. **PostgreSQL** - choose **one** of the options below.
 
-4. **Git** â€” <https://git-scm.com/download/win>
+4. **Git** - <https://git-scm.com/download/win>
    - Verify: `git --version`
 
 ---
