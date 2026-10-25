@@ -2,7 +2,6 @@ alembic==1.14.0
 annotated-types==0.8.0
 anyio==4.15.1
 bcrypt==4.2.1
--e git+https://github.com/omvishnukarishma-gif/AI-CareerPilot.git@7c59370e0a50ee05d4a5305da4232f1c94078723#egg=careerpilot_backend&subdirectory=backend
 certifi==2026.10.19
 cffi==2.1.1
 click==8.5.0
