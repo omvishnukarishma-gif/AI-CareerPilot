@@ -296,6 +296,6 @@ The score (0-100) is a self-reflection aid, not a hiring signal. It cannot asses
 ## Notes
 
 - **Never commit `.env` files.** They contain secrets and are in `.gitignore`.
-- The `.env.example` files are templates with fake values â€” safe to commit.
+- The `.env.example` files are templates with fake values - safe to commit.
 - AI API keys are loaded only on the backend and never exposed to the frontend.
-- Backend tests use mocked AI responses â€” no real API calls during testing.
+- Backend tests use mocked AI responses - no real API calls during testing.
