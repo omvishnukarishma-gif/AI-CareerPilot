@@ -26,12 +26,18 @@ A full-stack web application that helps students and job seekers:
 ## Project Structure
 
 ```
+# Project Structure
+
+```text
 AI-CareerPilot/
-â”œâ”€â”€ frontend/          # React + TypeScript + Vite frontend
-â”œâ”€â”€ backend/           # FastAPI + SQLAlchemy backend
-â”œâ”€â”€ docker-compose.yml # PostgreSQL via Docker
-â”œâ”€â”€ .gitignore
-â””â”€â”€ README.md
+|-- frontend/          # React + TypeScript + Vite frontend
+|-- backend/           # FastAPI + SQLAlchemy backend
+|-- docker-compose.yml # PostgreSQL via Docker
+|-- .gitignore
+|-- README.md
+```
+
+---
 ```
 
 ---
