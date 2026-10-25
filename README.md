@@ -25,30 +25,29 @@ A full-stack web application that helps students and job seekers:
 
 ## Project Structure
 
-```
+```text
 AI-CareerPilot/
-â”œâ”€â”€ frontend/          # React + TypeScript + Vite frontend
-â”œâ”€â”€ backend/           # FastAPI + SQLAlchemy backend
-â”œâ”€â”€ docker-compose.yml # PostgreSQL via Docker
-â”œâ”€â”€ .gitignore
-â””â”€â”€ README.md
+|-- frontend/          # React + TypeScript + Vite frontend
+|-- backend/           # FastAPI + SQLAlchemy backend
+|-- docker-compose.yml # PostgreSQL via Docker
+|-- .gitignore
+|-- README.md
 ```
 
 ---
-
 ## Prerequisites
 
 Install the following on your Windows machine:
 
-1. **Python 3.11 or later** â€” <https://www.python.org/downloads/windows/>
+1. **Python 3.11 or later** - <https://www.python.org/downloads/windows/>
    - Verify: `py --version`
 
-2. **Node.js 20 or later** (with npm) â€” <https://nodejs.org/>
+2. **Node.js 20 or later** (with npm) - <https://nodejs.org/>
    - Verify: `node --version` and `npm --version`
 
-3. **PostgreSQL** â€” choose **one** of the options below.
+3. **PostgreSQL** - choose **one** of the options below.
 
-4. **Git** â€” <https://git-scm.com/download/win>
+4. **Git** - <https://git-scm.com/download/win>
    - Verify: `git --version`
 
 ---
@@ -194,7 +193,7 @@ Then open `http://localhost:5173` in your browser.
 
 ---
 
-## API Endpoints (Phase 0â€“4)
+## API Endpoints (Phase 0-4)
 
 All API routes are prefixed with `/api/v1`.
 
@@ -202,8 +201,8 @@ All API routes are prefixed with `/api/v1`.
 
 | Method | Endpoint                | Description                               |
 |--------|-------------------------|-------------------------------------------|
-| GET    | `/api/v1/health`        | Health check â€” returns status             |
-| GET    | `/`                     | Root â€” links to API docs                  |
+| GET    | `/api/v1/health`        | Health check - returns status             |
+| GET    | `/`                     | Root - links to API docs                  |
 | GET    | `/docs`                 | Swagger UI (interactive docs)             |
 | POST   | `/api/v1/auth/register` | Create a new user account                 |
 | POST   | `/api/v1/auth/login`    | Log in and receive a JWT token            |
@@ -225,11 +224,11 @@ All API routes are prefixed with `/api/v1`.
 | GET    | `/api/v1/job-descriptions`      | List the current user's job descriptions         |
 | GET    | `/api/v1/job-descriptions/{id}` | Get one job description with full text           |
 
-### Resumeâ€“Job Matching & Skill Gaps (Phase 3)
+### Resume Job Matching & Skill Gaps (Phase 3)
 
 | Method | Endpoint              | Description                                      |
 |--------|-----------------------|--------------------------------------------------|
-| POST   | `/api/v1/matches`     | Run a resumeâ€“job match and compute skill gaps    |
+| POST   | `/api/v1/matches`     | Run a resume job match and compute skill gaps    |
 | GET    | `/api/v1/matches`     | List the current user's matches                  |
 | GET    | `/api/v1/matches/{id}`| Get one match with embedded skill-gap analysis   |
 
@@ -246,13 +245,13 @@ All endpoints except `/health`, `/`, `/docs`, `/auth/register`, and `/auth/login
 
 ---
 
-## Interview Preparation â€” Usage
+## Interview Preparation - Usage
 
 1. Navigate to **Interview Prep** in the sidebar.
 2. Enter the role you are practising for (e.g. "Senior Python Developer").
 3. Optionally select a saved job description to get skill-focused questions.
 4. Optionally select a resume to focus questions on skills missing from it.
-5. Click **Start practice** â€” a session is created and questions are generated.
+5. Click **Start practice** - a session is created and questions are generated.
 6. Answer each question in the text area and click **Submit & next**.
 7. After the last answer the session summary is shown with per-question scores and feedback.
 8. Click **History** to review all past sessions.
@@ -265,39 +264,38 @@ Questions are chosen from a curated bank by category:
 |---------------|------------------------------------------------|-------|
 | `behavioral`  | Fixed STAR-method situational questions        | 3     |
 | `technical`   | Fixed software-engineering fundamentals        | 3     |
-| `role_specific` | Matched to keywords in the role target (Python, React, backend, â€¦) | 0â€“2 |
-| `jd_skill`    | One question per skill extracted from the JD text (prioritises skills missing from the resume) | 0â€“4 |
+| `role_specific` | Matched to keywords in the role target (Python, React, backend, ...) | 2 |
+| `jd_skill`    | One question per skill extracted from the JD text (prioritises skills missing from the resume) | 4 |
 
 ### How answers are scored
 
-Feedback is produced by a deterministic, offline heuristic â€” **no LLM or paid API is used**.
+Feedback is produced by a deterministic, offline heuristic - **no LLM or paid API is used**.
 
-- **Keyword coverage (50%)** â€” how many of the question's expected concepts appear in the answer.
-- **Length (25%)** â€” answers under 30 words score poorly; answers over 80 words score full marks.
-- **Structure (25%)** â€” behavioral questions check for STAR-method markers; technical questions check for example markers.
+- **Keyword coverage (50%)** - how many of the question's expected concepts appear in the answer.
+- **Length (25%)** - answers under 30 words score poorly; answers over 80 words score full marks.
+- **Structure (25%)** - behavioral questions check for STAR-method markers; technical questions check for example markers.
 
-The score (0â€“100) is a self-reflection aid, not a hiring signal. It cannot assess answer quality, depth, or domain accuracy.
+The score (0-100) is a self-reflection aid, not a hiring signal. It cannot assess answer quality, depth, or domain accuracy.
 
 ---
 
 ## Development Phases
 
-| Phase | Description                          | Status       |
-|-------|--------------------------------------|-------------|
-| 0     | Project setup and infrastructure     | âœ… Complete |
-| 1     | Authentication system               | âœ… Complete |
-| 2     | Resume upload and AI parsing         | âœ… Complete |
-| 3     | Job match and skill gap analysis     | âœ… Complete |
-| 4     | AI interview preparation             | âœ… Complete |
-| 5     | Application tracker                  | Not started |
-| 6     | Dashboard and polish                 | Not started |
-| 7     | Deployment preparation               | Not started |
-
+| Phase | Description                      | Status      |
+|-------|----------------------------------|-------------|
+| 0     | Project setup and infrastructure | Complete    |
+| 1     | Authentication system            | Complete    |
+| 2     | Resume upload and AI parsing     | Complete    |
+| 3     | Job match and skill gap analysis | Complete    |
+| 4     | AI interview preparation         | Complete    |
+| 5     | Application tracker              | Not started |
+| 6     | Dashboard and polish             | Not started |
+| 7     | Deployment preparation           | Not started |
 ---
 
 ## Notes
 
 - **Never commit `.env` files.** They contain secrets and are in `.gitignore`.
-- The `.env.example` files are templates with fake values â€” safe to commit.
+- The `.env.example` files are templates with fake values - safe to commit.
 - AI API keys are loaded only on the backend and never exposed to the frontend.
-- Backend tests use mocked AI responses â€” no real API calls during testing.
+- Backend tests use mocked AI responses - no real API calls during testing.
