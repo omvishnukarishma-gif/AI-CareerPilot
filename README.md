@@ -281,17 +281,16 @@ The score (0-100) is a self-reflection aid, not a hiring signal. It cannot asses
 
 ## Development Phases
 
-| Phase | Description                          | Status       |
-|-------|--------------------------------------|-------------|
-| 0     | Project setup and infrastructure     | âœ… Complete |
-| 1     | Authentication system               | âœ… Complete |
-| 2     | Resume upload and AI parsing         | âœ… Complete |
-| 3     | Job match and skill gap analysis     | âœ… Complete |
-| 4     | AI interview preparation             | âœ… Complete |
-| 5     | Application tracker                  | Not started |
-| 6     | Dashboard and polish                 | Not started |
-| 7     | Deployment preparation               | Not started |
-
+| Phase | Description                      | Status      |
+|-------|----------------------------------|-------------|
+| 0     | Project setup and infrastructure | Complete    |
+| 1     | Authentication system            | Complete    |
+| 2     | Resume upload and AI parsing     | Complete    |
+| 3     | Job match and skill gap analysis | Complete    |
+| 4     | AI interview preparation         | Complete    |
+| 5     | Application tracker              | Not started |
+| 6     | Dashboard and polish             | Not started |
+| 7     | Deployment preparation           | Not started |
 ---
 
 ## Notes
