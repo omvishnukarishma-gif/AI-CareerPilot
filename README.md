@@ -224,11 +224,11 @@ All API routes are prefixed with `/api/v1`.
 | GET    | `/api/v1/job-descriptions`      | List the current user's job descriptions         |
 | GET    | `/api/v1/job-descriptions/{id}` | Get one job description with full text           |
 
-### Resumeâ€“Job Matching & Skill Gaps (Phase 3)
+### Resume Job Matching & Skill Gaps (Phase 3)
 
 | Method | Endpoint              | Description                                      |
 |--------|-----------------------|--------------------------------------------------|
-| POST   | `/api/v1/matches`     | Run a resumeâ€“job match and compute skill gaps    |
+| POST   | `/api/v1/matches`     | Run a resume job match and compute skill gaps    |
 | GET    | `/api/v1/matches`     | List the current user's matches                  |
 | GET    | `/api/v1/matches/{id}`| Get one match with embedded skill-gap analysis   |
 
