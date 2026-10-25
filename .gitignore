@@ -1,0 +1,64 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+*.whl
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment variables (NEVER commit real secrets)
+.env
+.env.local
+.env.*.local
+
+# ===== Node.js / Frontend =====
+node_modules/
+dist/
+.vite/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===== Testing =====
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+coverage/
+.nyc_output/
+
+# ===== IDE / Editor =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ===== Docker =====
+docker-compose.override.yml
+
+# ===== Database =====
+*.db
+*.sqlite3
+pgdata/
+
+# ===== User uploads =====
+# Uploaded resume files must never be committed to version control.
+uploads/
+backend/test_p2_out.txt
+*.tsbuildinfo
