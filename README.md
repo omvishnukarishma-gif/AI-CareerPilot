@@ -264,8 +264,8 @@ Questions are chosen from a curated bank by category:
 |---------------|------------------------------------------------|-------|
 | `behavioral`  | Fixed STAR-method situational questions        | 3     |
 | `technical`   | Fixed software-engineering fundamentals        | 3     |
-| `role_specific` | Matched to keywords in the role target (Python, React, backend, â€¦) | 0â€“2 |
-| `jd_skill`    | One question per skill extracted from the JD text (prioritises skills missing from the resume) | 0â€“4 |
+| `role_specific` | Matched to keywords in the role target (Python, React, backend, ...) | 2 |
+| `jd_skill`    | One question per skill extracted from the JD text (prioritises skills missing from the resume) | 4 |
 
 ### How answers are scored
 
