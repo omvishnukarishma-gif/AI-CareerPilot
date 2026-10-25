@@ -245,13 +245,13 @@ All endpoints except `/health`, `/`, `/docs`, `/auth/register`, and `/auth/login
 
 ---
 
-## Interview Preparation â€” Usage
+## Interview Preparation - Usage
 
 1. Navigate to **Interview Prep** in the sidebar.
 2. Enter the role you are practising for (e.g. "Senior Python Developer").
 3. Optionally select a saved job description to get skill-focused questions.
 4. Optionally select a resume to focus questions on skills missing from it.
-5. Click **Start practice** â€” a session is created and questions are generated.
+5. Click **Start practice** - a session is created and questions are generated.
 6. Answer each question in the text area and click **Submit & next**.
 7. After the last answer the session summary is shown with per-question scores and feedback.
 8. Click **History** to review all past sessions.
