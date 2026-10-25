@@ -269,13 +269,13 @@ Questions are chosen from a curated bank by category:
 
 ### How answers are scored
 
-Feedback is produced by a deterministic, offline heuristic â€” **no LLM or paid API is used**.
+Feedback is produced by a deterministic, offline heuristic - **no LLM or paid API is used**.
 
-- **Keyword coverage (50%)** â€” how many of the question's expected concepts appear in the answer.
-- **Length (25%)** â€” answers under 30 words score poorly; answers over 80 words score full marks.
-- **Structure (25%)** â€” behavioral questions check for STAR-method markers; technical questions check for example markers.
+- **Keyword coverage (50%)** - how many of the question's expected concepts appear in the answer.
+- **Length (25%)** - answers under 30 words score poorly; answers over 80 words score full marks.
+- **Structure (25%)** - behavioral questions check for STAR-method markers; technical questions check for example markers.
 
-The score (0â€“100) is a self-reflection aid, not a hiring signal. It cannot assess answer quality, depth, or domain accuracy.
+The score (0-100) is a self-reflection aid, not a hiring signal. It cannot assess answer quality, depth, or domain accuracy.
 
 ---
 
