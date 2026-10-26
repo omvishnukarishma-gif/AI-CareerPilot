@@ -2,7 +2,10 @@ alembic==1.14.0
 annotated-types==0.8.0
 anyio==4.15.1
 bcrypt==4.2.1
+<<<<<<< HEAD
 -e ./backend
+=======
+>>>>>>> origin/main
 certifi==2026.10.19
 cffi==2.1.1
 click==8.5.0
