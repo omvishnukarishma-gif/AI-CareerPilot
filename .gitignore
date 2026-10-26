@@ -62,3 +62,7 @@ pgdata/
 uploads/
 backend/test_p2_out.txt
 *.tsbuildinfo
+
+# ===== Temporary / generated files =====
+AUDIT_REPORT_BACKEND_ROUTERS.md
+requirements.txt.utf16-backup

@@ -48,6 +48,13 @@ class Settings(BaseSettings):
     llm_model: str = "gpt-4o-mini"
     llm_base_url: str = "https://api.openai.com/v1"
 
+    # Frontend serving
+    # Set SERVE_FRONTEND=true in production (Docker / Render) to serve the
+    # compiled React build from FastAPI.  Leave it false (the default) for
+    # local development and tests so `/` returns the JSON API info response
+    # that the test suite expects.
+    serve_frontend: bool = False
+
     # File uploads
     # upload_dir is relative to the working directory (backend/).
     # In production this should point to a persistent volume mount.
@@ -69,6 +76,31 @@ class Settings(BaseSettings):
             return [origin.strip() for origin in v.split(",") if origin.strip()]
         return list(v)  # type: ignore[arg-type]
 
+    @field_validator("database_url", mode="before")
+    @classmethod
+    def normalise_database_url(cls, v: object) -> object:
+        """Normalise the database URL to use the psycopg3 SQLAlchemy dialect.
+
+        Render (and many other providers) set DATABASE_URL with a bare
+        ``postgresql://`` or ``postgres://`` scheme.  SQLAlchemy 2 requires
+        ``postgresql+psycopg://`` to use the psycopg3 driver.  This validator
+        rewrites the scheme automatically so operators do not need to edit
+        the value injected by their platform.
+
+        The URL value is never logged — only the scheme prefix is inspected.
+        """
+        if not isinstance(v, str):
+            return v
+        # Map legacy / provider-supplied schemes to psycopg3 scheme
+        replacements = {
+            "postgres://": "postgresql+psycopg://",
+            "postgresql://": "postgresql+psycopg://",
+        }
+        for old, new in replacements.items():
+            if v.startswith(old):
+                return new + v[len(old):]
+        return v
+
     @model_validator(mode="after")
     def resolve_upload_dir(self) -> "Settings":
         """Convert a relative upload_dir to an absolute path.
@@ -82,19 +114,35 @@ class Settings(BaseSettings):
         return self
 
     @model_validator(mode="after")
-    def warn_insecure_secret_key(self) -> "Settings":
-        """Log a warning when the default development secret key is in use.
+    def validate_secret_key(self) -> "Settings":
+        """Enforce a strong SECRET_KEY in production; warn in development.
 
-        Never raises — the application starts regardless.  Production operators
-        MUST set SECRET_KEY to a strong random value.  To generate one:
+        - If SERVE_FRONTEND=true (production / Docker / Render) and the dev
+          default key is still in use, startup is aborted with a clear error.
+          This prevents deploying with a known-insecure signing secret.
+        - In local development (SERVE_FRONTEND=false) the application starts
+          but logs a prominent warning so the developer is reminded to rotate
+          the key before going live.
+
+        To generate a strong key:
             python -c "import secrets; print(secrets.token_hex(32))"
         """
-        if self.secret_key == "dev-secret-key-change-in-production":
-            logger.warning(
-                "SECRET_KEY is set to the insecure development default. "
-                "Set SECRET_KEY to a strong random value before deploying to production. "
-                "Generate one with: python -c \"import secrets; print(secrets.token_hex(32))\""
-            )
+        _DEV_DEFAULT = "dev-secret-key-change-in-production"
+        if self.secret_key == _DEV_DEFAULT:
+            if self.serve_frontend:
+                # Production mode — refuse to start with an insecure key.
+                raise ValueError(
+                    "SECRET_KEY is set to the insecure development default. "
+                    "Set SECRET_KEY to a strong random value before deploying. "
+                    "Generate one with: python -c \"import secrets; print(secrets.token_hex(32))\""
+                )
+            else:
+                # Development mode — warn but allow startup.
+                logger.warning(
+                    "SECRET_KEY is set to the insecure development default. "
+                    "Set SECRET_KEY to a strong random value before deploying to production. "
+                    "Generate one with: python -c \"import secrets; print(secrets.token_hex(32))\""
+                )
         return self
 
 
