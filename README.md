@@ -172,6 +172,40 @@ npm run test
 
 ---
 
+## Test Results
+
+Latest verified run (2026-10-26).
+
+### Backend
+
+```powershell
+# From the project root, with the backend venv activated
+python -m pytest backend/tests -q
+```
+
+Result: **461 passed, 6 warnings, 0 failures.**
+
+The 6 warnings are non-fatal (e.g. deprecation notices from dependencies) and do not affect functionality.
+
+### Frontend
+
+```powershell
+# From the frontend/ directory
+npm test -- --run
+```
+
+Result: **3 test files, 64 tests passed, 0 failures.**
+
+Current test files cover:
+- Resume upload / API integration
+- Interview preparation page
+- Resumes page
+
+Dedicated Application Tracker frontend tests were not found under `frontend/src/test/`.
+The Application Tracker backend tests (32 tests) are included in the 461 backend total above.
+
+---
+
 ## Running Both Together
 
 Open two terminals:
@@ -193,7 +227,7 @@ Then open `http://localhost:5173` in your browser.
 
 ---
 
-## API Endpoints (Phase 0-4)
+## API Endpoints (Phase 0-5)
 
 All API routes are prefixed with `/api/v1`.
 
@@ -239,7 +273,17 @@ All API routes are prefixed with `/api/v1`.
 | POST   | `/api/v1/interview-sessions`                | Start a new practice session (generates questions) |
 | GET    | `/api/v1/interview-sessions`                | List the current user's sessions (lean)            |
 | GET    | `/api/v1/interview-sessions/{id}`           | Get full session detail (questions + transcript)   |
-| POST   | `/api/v1/interview-sessions/{id}/answers`   | Submit one answer â€” returns feedback + score       |
+| POST   | `/api/v1/interview-sessions/{id}/answers`   | Submit one answer — returns feedback + score       |
+
+### Application Tracker (Phase 5)
+
+| Method | Endpoint                                | Description                                        |
+|--------|-----------------------------------------|----------------------------------------------------|
+| POST   | `/api/v1/job-applications`              | Create a new job application record                |
+| GET    | `/api/v1/job-applications`              | List the current user's job applications           |
+| GET    | `/api/v1/job-applications/{id}`         | Get one job application                            |
+| PUT    | `/api/v1/job-applications/{id}`         | Update a job application (partial fields accepted) |
+| DELETE | `/api/v1/job-applications/{id}`         | Permanently delete a job application               |
 
 All endpoints except `/health`, `/`, `/docs`, `/auth/register`, and `/auth/login` require a Bearer JWT token.
 
@@ -288,7 +332,7 @@ The score (0-100) is a self-reflection aid, not a hiring signal. It cannot asses
 | 2     | Resume upload and AI parsing     | Complete    |
 | 3     | Job match and skill gap analysis | Complete    |
 | 4     | AI interview preparation         | Complete    |
-| 5     | Application tracker              | Not started |
+| 5     | Application tracker              | Implemented — backend tests pass; frontend UI tests not found |
 | 6     | Dashboard and polish             | Not started |
 | 7     | Deployment preparation           | Not started |
 ---
